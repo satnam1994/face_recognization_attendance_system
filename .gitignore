@@ -1,0 +1,33 @@
+# Local configuration and credentials
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.keystore
+
+# Installed dependencies and generated output
+**/node_modules/
+**/dist/
+**/build/
+**/coverage/
+**/.expo/
+**/.expo-shared/
+**/*.tsbuildinfo
+
+# Runtime data
+**/logs/
+**/uploads/
+*.log
+
+# Local/editor/OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Local reports and unrelated project attachments
+/Mca project Images/
+/*.docx
+/generate_report.py
+/plan.md

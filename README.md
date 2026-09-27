@@ -90,6 +90,7 @@ Install the following tools before getting started:
 
 **For Android:**
 - Android Studio with Android SDK (API Level 33+)
+- Android SDK Platform-Tools (`adb`) available on `PATH` and `ANDROID_HOME` configured to use `npm run android`
 - Android emulator OR a physical Android device
 - Enable "USB Debugging" on physical device
 
@@ -380,7 +381,7 @@ Open `src/api/client.ts` and update the `BASE_URL` to point to your backend:
 
 ```typescript
 // For physical device on the same network — use your machine's local IP
-const BASE_URL = 'http://192.168.1.100:3000/api';
+const BASE_URL = 'http://YOUR_COMPUTER_LAN_IP:3000/api';
 
 // For Android emulator (emulator reaches host at 10.0.2.2)
 const BASE_URL = 'http://10.0.2.2:3000/api';
@@ -437,8 +438,9 @@ This opens the **Expo Developer Tools** in your browser. You will see a QR code.
 ### Option B — Android Emulator
 
 1. Open Android Studio → AVD Manager → Create a virtual device (Pixel 7, API 33+)
-2. Start the emulator
-3. Run:
+2. In SDK Manager, install Android SDK Platform-Tools and an Android SDK platform; ensure `adb` is available on `PATH` and `ANDROID_HOME` points to the SDK directory
+3. Start the emulator and confirm it appears in `adb devices`
+4. Run:
 
 ```bash
 cd mobile
@@ -446,6 +448,11 @@ npm run android
 # OR
 expo start --android
 ```
+
+If you only have a physical Android phone, no local Android SDK is needed:
+run `npm start` in `mobile` and scan the QR code with Expo Go. If `npm run
+android` reports `spawn adb ENOENT`, install/configure Platform-Tools as
+described in [MOBILE_SETUP_GUIDE.md](MOBILE_SETUP_GUIDE.md).
 
 ### Option C — iOS Simulator (macOS only)
 
